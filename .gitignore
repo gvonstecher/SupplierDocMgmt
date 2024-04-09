@@ -1,1 +1,3 @@
-env*
+library/env.php
+library/env.LOCAL.php
+library/env.PROD.php
