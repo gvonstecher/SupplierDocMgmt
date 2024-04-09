@@ -1,0 +1,76 @@
+<div class="content-wrapper" style="min-height: 273px;">
+
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2 justify-content-between">
+				<div class="col-sm-auto">
+					<h1 class="m-0"> {:nombre_planta:}</h1>
+				</div>
+				<div class="col-sm-auto">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Plantas</a></li>
+						<li class="breadcrumb-item active">{:nombre_planta:}</li>
+					</ol>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	
+
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+
+					<div class="card card-outline card-primary">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3"><b>Listado de {:tipouser_nombre:}</b></h3>
+							<ul class="nav nav-pills ml-auto p-2">
+								<li class="nav-item mx-2">
+									{::NOT_PROVEEDOR::}
+									<a class="btn btn-primary btn-block btn-agregar_documentacion hide-su"  href="?s=usuario&subsection=edit&tipouser={:tipouser:}">
+										<i class="fas fa-edit"></i> Agregar {:tipouser_nombre_sing:}
+									</a>
+									{::NOT_PROVEEDOR::}
+
+								</li>
+							</ul>
+						</div>
+						<div class="card-body">
+
+							<table id="data_table_proveedores" class="table table-documentos table-bordered table-hover text-nowrap" data-id="{:id_proveedor_planta:}" data-tipo_entidad="0">
+								<thead>
+									<tr>
+                                        <th>Id</th>
+										<th>Nombre</th>
+										<th>Correo Electronico</th>
+										<th>Editar</th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    {::USUARIOS::}
+                                    <tr>
+                                        <td>{:id:}</td>
+                                        <td>{:nombre:}</td>
+										<td>{:mail:}</td>
+                                        <td>
+                                            <a class="btn" href="?s=usuario&subsection=edit&id={:id:}"><i class="fas fa-edit"></i></a>
+                                            
+                                        </td>
+                                    </tr>
+                                    {::USUARIOS::}
+                                </tbody>
+							</table>
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>

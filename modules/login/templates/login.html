@@ -1,0 +1,54 @@
+
+
+<div class="login-box">
+	<div class="login-logo">
+		<img src="images/logo.png" alt="hz group" />
+	</div>
+
+	<div class="card">
+		<div class="card-body login-card-body">
+			<form action="{:url:}" method="post">
+				<div class="input-group mb-3">
+					<input type="text" name="usuario" class="form-control {:error_usuario_class:}" id="usuario"
+						placeholder="Ingresa tu usuario o email" value="{:usuario:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-envelope"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_usuario:}</span>
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" name="password" placeholder="Contraseña" class="form-control {:error_password_class:}" id="password"
+						value="{:password:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_password:}</span>
+				</div>
+				<div class="form-group mb-3">
+					<select id="planta" name="planta" class="form-control {:error_planta_class:}" placeholder="Planta">
+						<option disabled selected>Seleccione Planta</option>
+						{::PLANTA::}
+						<option value="{:id:}">{:nombre:}</option>
+						{::PLANTA::}
+					</select>
+					<span class="error invalid-feedback">{:error_planta:}</span>
+				</div>
+					<div class="col-4">
+						<button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+					</div>
+					<p class="mb-1">
+						<a href="?s=registro">No tiene usuario? Registrese</a>
+					</p>
+					<p class="mb-1">
+						<a href="mailto:proveedoreshz@mrdargentina.net?subject=No%20recuerdo%20mis%20datos%20de%20acceso">No recuerdo mis datos de acceso</a>
+					</p>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>

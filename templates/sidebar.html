@@ -1,0 +1,23 @@
+
+									<li class="nav-item {:menu_open:}">
+										<a href="#" class="nav-link {:active:}">
+											<i class="nav-icon {:icono_entidad:}"></i>
+											<p>
+												<span class="text-uppercase">{:titulo_entidad:}</span>
+												<i class="right fas fa-angle-left"></i>
+											</p>
+										</a>
+										<ul class="nav nav-treeview">
+											{::ITEM_MENU::}
+
+											<li class="nav-item">
+												<a href="{:url_seccion:}" class="nav-link {:selected:}">
+													<i class="nav-icon far fa-circle nav-icon"></i>
+													<p>
+														{:nombre_seccion:}
+													</p>
+												</a>
+											</li>
+											{::ITEM_MENU::}
+										</ul>
+									</li>

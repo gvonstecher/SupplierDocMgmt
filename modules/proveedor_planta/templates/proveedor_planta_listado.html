@@ -1,0 +1,451 @@
+<div class="content-wrapper" style="min-height: 273px;">
+
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2 justify-content-between">
+				<div class="col-sm-auto">
+					<h1 class="m-0">Pantalla de Inicio para Planta {:nombre_planta:}</h1>
+				</div>
+				<div class="col-sm-auto">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Plantas</a></li>
+						<li class="breadcrumb-item active">{:nombre_planta:}</li>
+					</ol>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	
+
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-12">
+					<div class="card card-default card-outline card-primary">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3"><b>Resumen Proveedor</b></h3>
+						</div>
+						<div class="card-body">
+							<dl class="row">
+								<dt class="col-auto">Nombre Proveedor:</dt>
+								<dd class="col-auto">{:nombre_proveedor:}</dd>
+								<dt class="offset-1 col-auto">Cuit Proveedor:</dt>
+								<dd class="col-auto">{:cuit_proveedor:}</dd>
+								<input type="hidden" name="id_proveedor" id="id_proveedor" value="{:id_proveedor:}" />
+								<input type="hidden" name="id_proveedor_planta" id="id_proveedor_planta" value="{:id_proveedor_planta:}" />
+								<input type="hidden" name="tipouser" id="tipouser" value="{:tipouser:}" />
+								<input type="hidden" id="flag_documentacion" name="flag_documentacion" value="" />
+							</dl>
+							{::ESTADO_ALERTA::}
+							<div class="alert {:alerta_clase:}">
+								<h5 class="text-uppercase"><i class="icon fas fa-ban"></i> {:alerta_estado:}</h5>
+								{:alerta_detalle:}
+							</div>
+							{::ESTADO_ALERTA::}
+
+							{::ESTADO_EDITABLE::}
+									<form class="callout callout-info" id="form_estado">
+										<div class="form-group row align-items-center">
+											<label class="control-label text-left" for="estado">Estado de la documentación: <span class="required">*</span></label>
+											<select name="estado" id="estado" class="form-control form-control-lg">
+													{::TIPO_ESTADO::}
+														<option value="{:valor:}" {:selected:}>{:nombre:}</option>
+													{::TIPO_ESTADO::}
+											</select>
+										</div>
+										<div class="form-group row align-items-center">
+											<label class="control-label text-left" for="estado_detalle">Estado de la documentación (detalle): <span class="required">*</span></label>
+											<textarea class="form-control" name="estado_detalle" id="estado_detalle" rows="3" placeholder="Enter ...">{:estado_detalle:}</textarea>
+										</div>
+										<div class="form-group row align-items-center">
+											<button type="submit" class="btn btn-block btn-primary btn-lg">Guardar</button>
+											<span id="estado-mensaje" class="error text-danger pt-2"></span>
+										</div>
+									</form>
+							{::ESTADO_EDITABLE::}
+
+							{::VENCIMIENTO::}
+							<div class="callout callout-danger">
+								<h5 class="text-uppercase text-danger">
+									<i class="fas fa-exclamation-triangle"></i>
+									Atencion, alguna documentacion está vencida o a punto de vencer
+								</h5>
+								<ul>
+									{::DOCUMENTO::}
+										<li><b>Documento de {:tipo_entidad:} - {:nombre_entidad:}:</b> {:nombre_documento:} - <span class="text-danger">{:fecha_vencimiento:}</span></li>
+									{::DOCUMENTO::}
+								</ul>
+								
+							</div>
+							{::VENCIMIENTO::}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+
+					<div class="card card-outline card-primary">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3"><b>Datos del Proveedor</b></h3>
+							<ul class="nav nav-pills ml-auto p-2">
+								<li class="nav-item"><a class="nav-link active" href="#proveedor-general"
+										data-toggle="tab">Datos Generales</a></li>
+								<li class="nav-item"><a class="nav-link" href="#proveedor-banco" data-toggle="tab">Datos
+										Bancarios</a></li>
+								<li class="nav-item"><a class="nav-link" href="#proveedor-impositivo"
+										data-toggle="tab">Cond Impositiva</a></li>
+								<li class="nav-item mx-2">
+									<a class="btn btn-default btn-block btn-proveedor hide-su" href="index.php?s=proveedor&subsection=edit"><i
+											class="fas fa-edit"></i> Editar Datos</a>
+
+								</li>
+							</ul>
+						</div>
+						<div class="card-body">
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="proveedor-general">
+									<div class="row">
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">Nombre / Razón Social:</dt>
+												<dd>{:nombre_proveedor:}</dd>
+												<dt class="mt-3">Cuit:</dt>
+												<dd>{:cuit_proveedor:}</dd>
+												<dt class="mt-3">Condicion Social:</dt>
+												<dd>{:tipo_social_proveedor:}</dd>
+											</dl>
+										</div>
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">Persona de Contacto:</dt>
+												<dd>{:persona_contacto_proveedor:}</dd>
+												<dt class="mt-3">Teléfono de Contacto:</dt>
+												<dd>{:telefono_contacto_proveedor:}</dd>
+												<dt class="mt-3">Mail de Contacto:</dt>
+												<dd>{:mail_contacto_proveedor:}</dd>
+											</dl>
+										</div>
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">Domicilio Real:</dt>
+												<dd>{:domicilio_fiscal_proveedor:}</dd>
+												<dt class="mt-3">Domicilio Fiscal:</dt>
+												<dd>{:domicilio_real_proveedor:}</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane fade" id="proveedor-banco">
+									<div class="row">
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">Numero de Cuenta:</dt>
+												<dd>{:nro_cuenta_banco_proveedor:}</dd>
+											</dl>
+										</div>
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">CBU:</dt>
+												<dd>{:cbu_banco_proveedor:}</dd>
+											</dl>
+										</div>
+										<div class="col-md-4">
+											<dl>
+												<dt class="mt-3">Banco:</dt>
+												<dd>{:banco_proveedor:}</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane fade" id="proveedor-impositivo">
+									<div class="row">
+										<div class="col-md-6">
+											<dl>
+												<dt class="mt-3">Condición Impositiva:</dt>
+												<dd>{:condicion_impositiva_proveedor:}</dd>
+												<dt class="mt-3">Contribuyente IIBB:</dt>
+												<dd>{:contribuyente_iibb_proveedor:}</dd>
+											</dl>
+										</div>
+										<div class="col-md-6">
+											<dl>
+												<dt class="mt-3">Exención Ganancias:</dt>
+												<dd>{:exencion_ganancias_proveedor:}
+													<span>{:exencion_ganancias_porcentaje_proveedor:}</span>
+												</dd>
+												<dt class="mt-3">Exención CABA:</dt>
+												<dd>{:exencion_caba_proveedor:}<span>{:exencion_caba_porcentaje_proveedor:}</span></dd>
+												<dt class="mt-3">Exención IIBB Bs.As:</dt>
+												<dd>{:exencion_iibb_bsas_proveedor:}<span>{:exencion_iibb_bsas_porcentaje_proveedor:}</span>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+					<div class="card card-outline card-primary">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3"><b>Documentacion del Proveedor</b></h3>
+							<ul class="nav nav-pills ml-auto p-2">
+								<li class="nav-item mx-2">
+									<a class="btn btn-primary btn-block btn-agregar_documentacion hide-su" data-toggle="modal"
+										data-target="#modal-documentacion" data-id_entidad="{:id_proveedor_planta:}" data-id_proveedor="{:id_proveedor:}"
+										data-tipo_entidad="0" data-nombre_entidad="Proveedor">
+										<i class="fas fa-edit"></i> Agregar Documentación
+									</a>
+
+								</li>
+							</ul>
+						</div>
+						<div class="card-body">
+
+							<table id="data_table_0_{:id_proveedor_planta:}" class="table table-documentos table-bordered table-hover text-nowrap" data-id="{:id_proveedor_planta:}" data-tipo_entidad="0">
+								<thead>
+									<tr>
+										<th>Documento</th>
+										<th>Fecha Vencimiento</th>
+										<th>Ver</th>
+										<th>Eliminar</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					{::SOLO_PROVEEDORES::}
+					<div class="row d-flex justify-content-around mt-5 mb-4 hide-su">
+						<a type="button" href="?s=personal&pp_id={:id_proveedor_planta:}" class="btn btn-lg bg-gradient-warning">
+							<i class="fas fa-user"></i> Agregar Personal
+						</a>
+
+						<a type="button" href="?s=vehiculo&pp_id={:id_proveedor_planta:}" class="btn btn-lg  bg-gradient-success">
+							<i class="fas fa-car-side"></i> Agregar Vehiculo
+						</a>
+
+						<a type="button" href="?s=maquinaria&pp_id={:id_proveedor_planta:}" class="btn btn-lg bg-gradient-info">
+							<i class="fas fa-tractor"></i> Agregar Maquinaria
+						</a>
+					</div>
+
+					{::SOLO_PROVEEDORES::}
+
+					{::PERSONAL::}
+
+						<div class="card card-outline card-warning">
+							<div class="card-header d-flex p-0">
+								<h3 class="card-title p-3"><b>Personal: {:nombre:}</b></h3>
+								<ul class="nav nav-pills ml-auto p-2">
+									<li class="nav-item mx-2">
+										<a class="btn btn-default btn-block hide-su" href="?s=personal&pp_id={:id_proveedor_planta:}&id={:id:}">
+											<i class="fas fa-edit"></i> Editar Personal
+										</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a class="btn btn-primary btn-block btn-agregar_documentacion hide-su" data-toggle="modal"
+											data-target="#modal-documentacion" data-id_entidad="{:id:}"
+											data-tipo_entidad="{:tipo_entidad:}" data-nombre_entidad="Personal">
+											<i class="fas fa-edit"></i> Agregar Documentación
+										</a>
+
+									</li>
+								</ul>
+							</div>
+							<div class="card-body">
+
+								<dl class="row">
+									<dt class="col-auto">Nombre Personal:</dt>
+									<dd class="col-auto">{:nombre:}</dd>
+									<dt class="offset-1 col-auto">DNI Personal:</dt>
+									<dd class="col-auto">{:dni:}</dd>
+									<dt class="offset-1 col-auto">Vinculo:</dt>
+									<dd class="col-auto">{:vinculo:}</dd>
+								</dl>
+
+								<table id="data_table_{:tipo_entidad:}_{:id:}" class="table table-documentos table-bordered table-hover" data-id="{:id:}" data-tipo_entidad="{:tipo_entidad:}">
+									<thead>
+										<tr>
+											<th>Documento</th>
+											<th>Fecha Vencimiento</th>
+											<th>Ver</th>
+											<th>Eliminar</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+
+						</div>
+
+					{::PERSONAL::}
+
+					{::VEHICULO::}
+
+						<div class="card card-outline card-success">
+							<div class="card-header d-flex p-0">
+								<h3 class="card-title p-3"><b>Vehiculo: {:nombre:}</b></h3>
+								<ul class="nav nav-pills ml-auto p-2">
+									<li class="nav-item mx-2">
+										<a class="btn btn-default btn-block hide-su" href="?s=vehiculo&pp_id={:id_proveedor_planta:}&id={:id:}">
+											<i class="fas fa-edit"></i> Editar Vehiculo
+										</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a class="btn btn-primary btn-block btn-agregar_documentacion hide-su" data-toggle="modal"
+											data-target="#modal-documentacion" data-id_entidad="{:id:}"
+											data-tipo_entidad="{:tipo_entidad:}" data-nombre_entidad="Personal">
+											<i class="fas fa-edit"></i> Agregar Documentación
+										</a>
+
+									</li>
+								</ul>
+							</div>
+							<div class="card-body">
+
+								<dl class="row">
+									<dt class="col-auto">Tipo Vehículo:</dt>
+									<dd class="col-auto">{:nombre:}</dd>
+									<dt class="offset-1 col-auto">Identificacion Vehículo:</dt>
+									<dd class="col-auto">{:identificacion:}</dd>
+								</dl>
+
+								{::VEHICULO2::}
+									<dl class="row">
+									<dt class="col-auto">Tipo Vehículo 2:</dt>
+									<dd class="col-auto">{:nombre2:}</dd>
+									<dt class="offset-1 col-auto">Identificacion Vehículo 2:</dt>
+									<dd class="col-auto">{:identificacion2:}</dd>
+								</dl>
+								{::VEHICULO2::}
+
+								<table id="data_table_{:tipo_entidad:}_{:id:}" class="table table-documentos table-bordered table-hover" data-id="{:id:}" data-tipo_entidad="{:tipo_entidad:}">
+									<thead>
+										<tr>
+											<th>Documento</th>
+											<th>Fecha Vencimiento</th>
+											<th>Ver</th>
+											<th>Eliminar</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+
+						</div>
+
+					{::VEHICULO::}
+
+
+					{::MAQUINARIA::}
+
+						<div class="card card-outline card-info">
+							<div class="card-header d-flex p-0">
+								<h3 class="card-title p-3"><b>Maquinaria: {:nombre:}</b></h3>
+								<ul class="nav nav-pills ml-auto p-2">
+									<li class="nav-item mx-2">
+										<a class="btn btn-default btn-block hide-su" href="?s=maquinaria&pp_id={:id_proveedor_planta:}&id={:id:}">
+											<i class="fas fa-edit"></i> Editar Maquinaria
+										</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a class="btn btn-primary btn-block btn-agregar_documentacion hide-su" data-toggle="modal"
+											data-target="#modal-documentacion" data-id_entidad="{:id:}"
+											data-tipo_entidad="{:tipo_entidad:}" data-nombre_entidad="Personal">
+											<i class="fas fa-edit"></i> Agregar Documentación
+										</a>
+
+									</li>
+								</ul>
+							</div>
+							<div class="card-body">
+
+								<dl class="row">
+									<dt class="col-auto">Tipo Maquinaria:</dt>
+									<dd class="col-auto">{:nombre:}</dd>
+									<dt class="offset-1 col-auto">Identificacion Maquinaria:</dt>
+									<dd class="col-auto">{:identificacion:}</dd>
+								</dl>
+
+								<table id="data_table_{:tipo_entidad:}_{:id:}" class="table-documentos table table-bordered table-hover" data-id="{:id:}" data-tipo_entidad="{:tipo_entidad:}">
+									<thead>
+										<tr>
+											<th>Documento</th>
+											<th>Fecha Vencimiento</th>
+											<th>Ver</th>
+											<th>Eliminar</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+
+						</div>
+
+					{::MAQUINARIA::}
+
+					<div class="form-group row align-items-center mb-5 hide-su">
+						<button type="button" class="btn btn-block btn-primary btn-lg" id="presentar-documentacion">Presentar documentacion</button>
+						<span id="presentarDocumentacion-mensaje" class="error text-danger pt-2"></span>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="modal fade" id="modal-documentacion">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form id="form_documentacion" enctype="multipart/form-data">
+					<div class="modal-header">
+						<h4 class="modal-title" id="titulo_modal">Agregar Documentacion</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="dropzone-zone">
+						
+							<input type="hidden" id="id_entidad_asociada_documentacion" name="id_entidad_asociada_documentacion" value="" />
+							<input type="hidden" id="tipo_entidad_documentacion" name="tipo_entidad_documentacion" value="" />
+							<div class="form-group">
+								Documentacion a agregar:
+								<select id="id_tipo_documentacion" id="id_tipo_documentacion" class="form-control w-100" required></select>
+								
+							</div>
+
+
+							<div class="form-group hidden" id="vencimiento-container">
+								<label>Fecha de Vencimiento:</label>
+								<div class="input-group">
+									<input type="text" id="fecha_vto_documentacion" name="fecha_vto_documentacion" class="form-control">
+									<div class="input-group-append">
+										<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label>Archivo: <small class="font-weight-normal">(.jpg, .jpeg, .png, .pdf, .webp)</small></label>
+									<input type="file" class="form-control" id="filename_documentacion"  name="filename_documentacion" required accept=".jpg,.jpeg,.pdf,.png,*.webp">
+									<span id="filename_documentacion-error" class="error invalid-feedback">Please provide a password</span>
+							</div>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<input type="hidden" value="1" id="ignora_fecha" name="ignora_fecha" />
+						<button type="button" class="btn btn-default" id="cancelar_form_documentacion" data-dismiss="modal">Cancelar</button>
+						<button type="submit" id="submit_form_documentacion" class="btn btn-primary">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>

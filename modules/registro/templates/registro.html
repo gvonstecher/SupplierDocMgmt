@@ -1,0 +1,73 @@
+
+
+<div class="login-box">
+	<div class="login-logo">
+		<img src="images/logo.png" alt="hz group" />
+	</div>
+
+	<div class="card">
+		<div class="card-body login-card-body">
+			<form id="form" action="{:url:}" method="post">
+				<div class="container-input input-group mb-3">
+					<input type="text" name="username" class="form-control {:error_usuario_class:}" id="username"
+						placeholder="Ingresa tu usuario" value="{:username:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-envelope"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_usuario:}</span>
+				</div>
+				<div class="container-input input-group mb-3">
+					<input type="email" name="mail" class="form-control {:error_usuario_class:}" id="mail"
+						placeholder="Ingresa tu Email" value="{:mail:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-envelope"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_usuario:}</span>
+				</div>
+				<div class="container-input input-group mb-3">
+					<input type="password" name="password" id="password" placeholder="Contraseña" class="form-control {:error_password_class:}"
+						value="{:password:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_password:}</span>
+				</div>
+				<div class="container-input input-group mb-3">
+					<input type="password" name="password2" id="password2" placeholder="Vuelva a ingresar la contraseña" class="form-control {:error_password2_class:}"
+						value="{:password2:}">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+						</div>
+					</div>
+					<span class="error invalid-feedback">{:error_password2:}</span>
+				</div>
+				<div class="container-input form-group mb-3">
+					<select id="planta" name="planta" class="form-control {:error_planta_class:}" placeholder="Planta">
+						<option disabled selected>Seleccione Planta</option>
+						{::PLANTA::}
+						<option value="{:id:}" {:selected:}>{:nombre:}</option>
+						{::PLANTA::}
+					</select>
+					<span class="error invalid-feedback">{:error_planta:}</span>
+				</div>
+				<div class="row">
+					<div class="col-8 error mb-4 text-danger ">{:mensaje:}</div>
+					<div class="col-4">
+						<button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+					</div>
+				</div>
+				<p class="mb-1">
+					<a href="?s=login">Ya tengo un usuario</a>
+				</p>
+			</form>
+		</div>
+
+	</div>
+</div>

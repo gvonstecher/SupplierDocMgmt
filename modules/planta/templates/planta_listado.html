@@ -1,0 +1,72 @@
+<div class="content-wrapper" style="min-height: 273px;">
+
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2 justify-content-between">
+				<div class="col-sm-auto">
+					<h1 class="m-0"> {:nombre_planta:}</h1>
+				</div>
+				<div class="col-sm-auto">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Plantas</a></li>
+						<li class="breadcrumb-item active">{:nombre_planta:}</li>
+					</ol>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	
+
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+
+					<div class="card card-outline card-primary">
+						<div class="card-header d-flex p-0">
+							<h3 class="card-title p-3"><b>Listado de Proveedores</b></h3>
+						</div>
+						<div class="card-body">
+
+							<table id="data_table_proveedores" class="table table-documentos table-bordered table-hover text-nowrap" data-id="{:id_proveedor_planta:}" data-tipo_entidad="0">
+								<thead>
+									<tr>
+										<th>Nombre de Usuario</th>
+										<th>Email</th>
+										<th>Nombre del Proveedor</th>
+										<th>Cuit</th>
+										<th>Estado</th>
+										<th>Ver</th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    {::PROVEEDORES::}
+                                    <tr>
+										<td>{:username:}</td>
+										<td>{:mail:}</td>
+                                        <td>{:nombre:}</td>
+                                        <td>{:cuit:}</td>
+                                        <td>
+                                            <span class="badge bg-{:estado_clase:} p-2">{:estado_nombre:}</span>
+                                        </td>
+                                        <td>
+                                            <a class="btn" href="?s=proveedor_planta&id={:id_pp:}" target="_blank"><i class="fas fa-search"></i></a>
+                                            
+                                        </td>
+                                    </tr>
+                                    {::PROVEEDORES::}
+                                </tbody>
+							</table>
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>

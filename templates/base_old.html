@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{::CSS-FILES::}
+	<link href="{:url:}" rel="stylesheet">
+	{::CSS-FILES::}
+	<title>Administración Dietas Cormillot</title>
+</head>
+
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+
+					<div class="navbar nav_title" style="border: 0;">
+		            	<a href="/" class="site_title"><i class="fa fa-cutlery"></i> <span>DietasCormillot</span></a>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+						<div class="menu_section">
+							{:menu:}
+						</div>
+					</div>
+					<!-- /sidebar menu -->
+
+				</div>
+
+			</div>
+			<!-- sidebar -->
+
+			<!-- top navigation -->
+	        <div class="top_nav">
+	        	<div class="nav_menu">
+	            	<nav>
+	              		<div class="nav toggle">
+	              				<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+	              		</div>
+						<nav class="nav navbar-nav">
+		              		<ul class="navbar-right">
+		            			<li class="nav-item" style="padding-left: 15px;">
+		            				<a data-toggle="tooltip" data-placement="top" title="Logout" href="?s=logout">
+			                			<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir
+			              			</a>
+		            			</li>
+
+		            			<li class="nav-item">
+		            				<a href="#">Logueado como {:usuario:}.</a>
+		            			</li>
+				            </ul>
+				        </nav>
+	            	</nav>
+	            </div>
+
+	        </div>
+	       	<!-- /top navigation -->
+
+	       	<!-- page content -->
+	       	<div class="right_col" role="main">
+      			{:body:}
+	       	</div>
+	       	<!-- /page content -->
+	       	<div class="clear-div"></div>
+
+		</div>
+
+	</div>
+
+{::JS-FILES::}
+	<script src="{:url:}"></script>
+{::JS-FILES::}
+
+
+</body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</html>
